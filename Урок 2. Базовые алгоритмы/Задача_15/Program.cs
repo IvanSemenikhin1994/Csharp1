@@ -15,11 +15,18 @@ Console.WriteLine("7 - воскресенье");
 
 int num = Convert.ToInt32(Console.ReadLine());
 
-if (num > 5)
+if (num > 0 && num < 8)
 {
-    Console.WriteLine("Да, это выходной");
+    if (num > 5)
+    {
+        Console.WriteLine("Да, это выходной");
+    }
+    else
+    {
+        Console.WriteLine("Нет, это будний день");
+    }
 }
 else
 {
-    Console.WriteLine("Нет, это будний день");
+    Console.WriteLine("Это не день недели!")
 }
