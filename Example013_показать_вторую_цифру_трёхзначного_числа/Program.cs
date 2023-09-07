@@ -13,6 +13,7 @@ int SecondDigitOfNumber(int number)
 
 System.Console.WriteLine("Введите трёхзначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
-
-System.Console.WriteLine(SecondDigitOfNumber(number));
-
+if (number > 99 && number < 1000)
+    System.Console.WriteLine(SecondDigitOfNumber(number));
+else
+    System.Console.WriteLine("Ошибка ввода. Введите трёхзначное число");
