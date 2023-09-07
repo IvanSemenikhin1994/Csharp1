@@ -19,12 +19,12 @@ while (index<n)
 
 void FillArray(int[] collection)
 {
-int length = collection.Length;
-int index = 0;
-while (index < length)
+    int length = collection.Length;
+    int index = 0;
+    while (index < length)
     {
-    collection[index] = new Random().Next(1, collection.Length);
-    index++;
+        collection[index] = new Random().Next(1, collection.Length);
+        index++;
     }
 }
 
@@ -47,7 +47,7 @@ int IndexOf(int[] collection, int find)
 
     while (index < count)
     {
-        if(collection[index] == find)
+        if (collection[index] == find)
         {
             position = index;
             break;
