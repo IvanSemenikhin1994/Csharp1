@@ -5,10 +5,9 @@
 
 int NumberQuaterOfPlane(int x1, int y1)
 {
+    int result = -1;
 
-    int result = 0;
-
-    if (x1 == 0 && y1 == 0)
+    if (x1 == 0 || y1 == 0)
     {
         System.Console.WriteLine("Ошибка. x и y не могут быть равны нулю");
         return result;
