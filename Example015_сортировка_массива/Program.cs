@@ -35,7 +35,7 @@ int[] SortArray(int[] array)
 
 // от большего к меньшему
 
-int[] SortArray(int[] array)
+void SortArray(int[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
@@ -51,9 +51,8 @@ int[] SortArray(int[] array)
         array[i] = array[MaxPosition];
         array[MaxPosition] = temp;
     }
-    return array;
 }
 
 PrintArray(array);
-int[] SortedArray = SortArray(array);
-PrintArray(SortedArray);
+SortArray(array);
+PrintArray(array);
