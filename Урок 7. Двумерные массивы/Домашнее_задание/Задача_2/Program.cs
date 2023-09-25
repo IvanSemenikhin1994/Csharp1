@@ -68,8 +68,6 @@ public class Answer
             }
             System.Console.WriteLine();
         }
-
-
     }
 
     public static int[,] CreateIncreasingMatrix(int n, int m, int k)
