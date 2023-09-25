@@ -50,25 +50,25 @@ void PrintArray(int[] array)
     }
 }
 
-bool IsPolygonValidV1(int[] abc)
-{
-    for (int i = 0; i < abc.Length; i++)
-    {
-        int sumOthers = 0;
-        for (int j = 0; j < abc.Length; j++)
-        {
-            if (j != i)
-                sum += abc[j];
-        }
-        if (abc[i] >= sumOthers)
-            return false;
-    }
-    return true;
-}
+// bool IsPolygonValidV1(int[] abc)
+// {
+//     for (int i = 0; i < abc.Length; i++)
+//     {
+//         int sumOthers = 0;
+//         for (int j = 0; j < abc.Length; j++)
+//         {
+//             if (j != i)
+//                 sumOthers += abc[j];
+//         }
+//         if (abc[i] >= sumOthers)
+//             return false;
+//     }
+//     return true;
+// }
 
 bool IsPolygonValidV2(int[] abc)
 {
-    sumAll = 0;
+    int sumAll = 0;
     for (int i = 0; i < abc.Length; i++)
     {
         sumAll += abc[i];
@@ -81,11 +81,11 @@ bool IsPolygonValidV2(int[] abc)
     return true;
 }
 
-int[] abc = { 4, 2, 73, 2, 7 };
+int[] abc = { 4, 2, 7, 2, 76 };
 
 PrintArray(abc);
 
-if (IsPolygonValid(abc) == true)
+if (IsPolygonValidV2(abc) == true)
     System.Console.WriteLine("Да, такой многоугольник существует");
 else
     System.Console.WriteLine("Нет, такого многоугольника не существует");
