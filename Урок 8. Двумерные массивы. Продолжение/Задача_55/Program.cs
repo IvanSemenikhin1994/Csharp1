@@ -3,18 +3,26 @@
 
 void PrintTwoDimArray(int[,] array)
 {
+    // индекс столбцов
+    // for (int i = 0; i < array.GetLength(1); i++)
+    // {
+    //     System.Console.Write("\t" + i);
+    // }
+    // System.Console.WriteLine();
+
     for (int i = 0; i < array.GetLength(0); i++)
     {
+        // System.Console.Write(i + "\t"); // индекс строк
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write(array[i, j] + " ");
+            System.Console.Write(array[i, j] + "\t");
         }
         System.Console.WriteLine();
     }
     System.Console.WriteLine();
 }
 
-int[,] CreateTwoDimArray(int rows = 5, int cols = 5, int minValue = 0, int maxValue = 9)
+int[,] CreateTwoDimArray(int rows = 6, int cols = 6, int minValue = 0, int maxValue = 9)
 {
     int[,] array = new int[rows, cols];
     for (int i = 0; i < array.GetLength(0); i++)
@@ -27,8 +35,10 @@ int[,] CreateTwoDimArray(int rows = 5, int cols = 5, int minValue = 0, int maxVa
     return array;
 }
 
-void ChangeRowsToCols(int[,] twoDimArray)
+bool ChangeRowsToCols(int[,] twoDimArray)
 {
+    if (twoDimArray.GetLength(0) != twoDimArray.GetLength(1))
+        return false;
     int pivot = 0;
     int maxLength = twoDimArray.GetLength(0);
     if (maxLength > twoDimArray.GetLength(1))
@@ -42,10 +52,15 @@ void ChangeRowsToCols(int[,] twoDimArray)
             twoDimArray[i, pivot] = temp;
         }
     }
+    return true;
 }
 
 int[,] twoDimArr = CreateTwoDimArray();
-PrintTwoDimArray(twoDimArr);
+    PrintTwoDimArray(twoDimArr);
 
-ChangeRowsToCols(twoDimArr);
-PrintTwoDimArray(twoDimArr);
+if (ChangeRowsToCols(twoDimArr))
+    System.Console.WriteLine("ok");
+else
+    System.Console.WriteLine("Невозможно заменить строки на столбцы");
+
+    PrintTwoDimArray(twoDimArr);
