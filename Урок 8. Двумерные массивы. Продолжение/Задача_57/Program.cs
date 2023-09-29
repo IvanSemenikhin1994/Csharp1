@@ -93,7 +93,7 @@ void FillStringArray(string[] strArr, int[] arr, int minValue)
 //     feturn stringArr;
 // }
 
-int minValue = 0;
+int minValue = -5;
 int maxValue = 9;
 
 int[,] matrix = CreateTwoDimArray(rows:3, cols:4, minValue, maxValue);
