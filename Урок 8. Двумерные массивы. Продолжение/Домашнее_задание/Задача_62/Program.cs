@@ -1,52 +1,51 @@
 ﻿// Задача 62. Напишите программу, которая заполнит спирально прямоугольный массив.
-
 // Например, на выходе может получиться вот такой массив:
 // 01 02 03 04
 // 12 13 14 05
 // 11 16 15 06
 // 10 09 08 07
 
-void PrintTwoDimArray(int[,] array)
+class Spiral
 {
-    // индекс столбцов
-    // for (int i = 0; i < array.GetLength(1); i++)
-    // {
-    //     System.Console.Write("\t" + i);
-    // }
-    // System.Console.WriteLine();
-
-    for (int i = 0; i < array.GetLength(0); i++)
+    static void DisplayArray(int[,] a)
     {
-        // System.Console.Write(i + "\t"); // индекс строк
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int i = 0; i < a.GetLength(0); i++)
         {
-            System.Console.Write(array[i, j] + "\t");
+            for (int j = 0; j < a.GetLength(1); j++) Console.Write("{0,3} ", a[i, j]);
+            Console.WriteLine();
         }
-        System.Console.WriteLine();
     }
-    System.Console.WriteLine();
-}
 
-int ValidDirection()
-{
-    if ()
-}
-
-void MakeItSpiral(int[,] array)
-{
-    int n = 1;
-    int row = 0;
-    for (int col = 0; col < array.GetLength(1); col++)
+    static void Main(string[] args)
     {
-        array[row, col] = n;
-        n++;
+        while (true)
+        {
+            Console.Write("Enter a non-negative number (0 - exit): ");
+
+            int n;
+            if (!Int32.TryParse(Console.ReadLine(), out n) || n <= 0) break;
+
+            Console.WriteLine();
+
+            int[,] a = new int[n, n];
+
+            int i = 0, j = 0;
+
+            int value = 1;
+
+            while (n != 0)
+            {
+                int k = 0;
+                do { a[i, j++] = value++; } while (++k < n - 1);
+                for (k = 0; k < n - 1; k++) a[i++, j] = value++;
+                for (k = 0; k < n - 1; k++) a[i, j--] = value++;
+                for (k = 0; k < n - 1; k++) a[i--, j] = value++;
+
+                ++i; ++j; n = n < 2 ? 0 : n - 2;
+            }
+
+            DisplayArray(a);
+            Console.WriteLine();
+        }
     }
 }
-
-int rows = 5;
-int cols = 5;
-int[,] arr = new int[rows, cols];
-
-
-MakeItSpiral(arr);
-PrintTwoDimArray(arr);
