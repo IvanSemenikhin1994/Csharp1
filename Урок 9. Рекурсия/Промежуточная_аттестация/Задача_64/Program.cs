@@ -6,9 +6,7 @@
 int NaturNums(int m, int n)
 {
     if (m > n)
-    {
         return 1;
-    }
     System.Console.Write("{0,3 }", m);
     return NaturNums(m + 1, n);
 }

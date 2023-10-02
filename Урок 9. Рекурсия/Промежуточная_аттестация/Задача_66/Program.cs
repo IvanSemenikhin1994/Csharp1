@@ -7,9 +7,7 @@
 int ArithmProgr(int m, int n)
 {
     if (m > n)
-    {
         return 0;
-    }
     return m + ArithmProgr(m + 1, n);
 }
 
