@@ -11,4 +11,4 @@ int ArithmProgr(int m, int n)
     return m + ArithmProgr(m + 1, n);
 }
 
-System.Console.WriteLine(ArithmProgr(m:1, n:15));
+System.Console.WriteLine(ArithmProgr(m:4, n:8));
