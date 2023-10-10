@@ -42,6 +42,8 @@ int[,] CreateMulMatrix(int[,] arr1, int[,] arr2)
     return arrMul;
 }
 
+/*
+
 int SumMatrixMul(int[,] matrix, int[,] arr1, int[,] arr2, int row, int col)
 {
     int sum = 0;
@@ -59,6 +61,26 @@ int[,] MatrixMul(int[,] arrMul, int[,] arr1, int[,] arr2)
         for (int j = 0; j < arrMul.GetLength(1); j++)
         {
             arrMul[i, j] = SumMatrixMul(arrMul, arr1, arr2, i, j);
+        }
+    }
+    return arrMul;
+}
+
+*/
+
+int[,] MatrixMulV2(int[,] arrMul, int[,] arr1, int[,] arr2)
+{
+    int sum = 0;
+    for (int i = 0; i < arrMul.GetLength(0); i++)
+    {
+        for (int j = 0; j < arrMul.GetLength(1); j++)
+        {
+            for (int k = 0; k < arrMul.GetLength(0); k++)
+            {
+                sum += arr1[i, k] * arr2[k, j];
+            }
+            arrMul[i, j] = sum;
+            sum = 0;
         }
     }
     return arrMul;
@@ -86,6 +108,6 @@ PrintTwoDimArray(arr2);
 if (MulMatrixValid(arr1, arr2))
     {
     int[,] arrMul = CreateMulMatrix(arr1, arr2);
-    arrMul = MatrixMul(arrMul, arr1, arr2);
+    arrMul = MatrixMulV2(arrMul, arr1, arr2);
     PrintTwoDimArray(arrMul);
     }
